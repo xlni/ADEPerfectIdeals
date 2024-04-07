@@ -6,11 +6,11 @@ Consider a T-shaped graph `T` with left arm of length `c-2`, right arm of length
 ```
 1/(c-1) + 1/(d+1) + 1/(t+1) > 1.
 ```
-In this setting, let `G` be the associated simply connected complex Lie group, and `P` the maximal parabolic corresponding to the diagram obtained by deleting the left-most vertex from `T`. Inside of the homogeneous space `G/P`, there are two linked Schubert varieties of codimension `c`, in the sense that their union is cut out by a regular sequence of length `c`.
+We henceforth assume this to be the case. In this setting, let `G` be the associated simply connected complex Lie group, and `P` the maximal parabolic corresponding to the diagram obtained by deleting the left-most vertex from `T`. Inside of the homogeneous space `G/P`, there are two linked Schubert varieties of codimension `c`, in the sense that their union is cut out by a regular sequence of length `c`.
 
 The purpose of this code is to produce the defining ideals of these Schubert varieties when restricted to certain cells. Each of these is a homogeneous ideal in a multigraded polynomial ring.
 
-The interest in these examples is because they give the generic examples of licci ideals of grade `c`, deviation at most `d`, and type at most `t`. Moreover, 
+The interest in these examples is because they conjecturally give the generic examples of perfect ideals of grade `c`, deviation at most `d`, and type at most `t`. This is classically known for `c = 2` and it is proven for `c = 3` (over a field of characteristic zero) in [this preprint](https://math.berkeley.edu/~xlni/Preprints/ADE.pdf).
 ## Usage
 To see the generic examples, i.e. the defining ideals of particular Schubert varieties, load the file `Demo.m2`. Find the example of interest, evaluate the line that looks like
 ```
