@@ -9,11 +9,11 @@ V = schurRep({1,1},F)
 schubertweight = matrix{{-1,1,-1,1}} 
 --the cell
 cellweight = matrix{{0,0,-1,0}};
-weightSpace(U,schubertweight);
+
 --Plucker coordinates vanishing on X
 schubertideal = gens trim ker dual generate(g.cache#"f",weightSpace(V,schubertweight),V);
 --parametrization of the cell C
-eY = (exp parametricAction(V,parametrizeCell(g,cellweight)))*weightSpace(V,cellweight);
+eY = (exp parametricAction(V,parametrizeCell(g,cellweight)))*weightSpace(V,cellweight); Rs = ring eY
 --ideal of X intersect C inside of C
 I = ideal((dual eY)*schubertideal)
 
@@ -23,8 +23,10 @@ g = lieAlgebra("E",6)
 V = extremalRepFull(g,1)
 schubertweight = matrix{{0,1,0,0,-1,1}} 
 cellweight = matrix{{0,0,0,0,0,-1}};
+
 schubertideal = gens trim ker dual generate(g.cache#"f",weightSpace(V,schubertweight),V);
-eY = (exp parametricAction(V,parametrizeCell(g,cellweight)))*weightSpace(V,cellweight); R = ring eY
+eY = (exp parametricAction(V,parametrizeCell(g,cellweight)))*weightSpace(V,cellweight); Rs = ring eY
 I = ideal((dual eY)*schubertideal);
 F = res I
 matrix degrees F_1
+

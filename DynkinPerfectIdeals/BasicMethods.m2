@@ -641,11 +641,17 @@ extendMap (Matrix,LieAlgebraRep,Matrix,LieAlgebraRep) := Matrix => (i1,V1,i2,V2)
 ------------------------
 
 --gives coordinates for parametrizing cell C_sigma
+--using (part of) the positive part of g
 parametrizeCell = method();
 parametrizeCell(LieAlgebra,Matrix) := Matrix => (g,lambda) -> (
     U := genericMultigradeFull(g);
     bigR := ring U;
-    R := prune (bigR/(ideal select(gens bigR, i -> (matrix{degree i}*(transpose lambda))_(0,0) <= 0)));
+    R := prune (bigR/(ideal select(gens bigR, i -> (
+		    ((matrix{degree i}*(transpose lambda))_(0,0) <= 0)
+		    or
+		    (sum(flatten entries matrix{degree i}) >= 0)
+		    )
+		)));
     return sub(U,R)
     )
 
